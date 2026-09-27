@@ -81,13 +81,12 @@ public final class Clock24Jml {
       System.out.println("End:   " + t2 + " (minute=" + t2.minute() + ")");
 
       // Example with assertions
-        Clock24Jml t3 = Clock24Jml.ofSecondsSinceStart(23 * 3600L + 59 * 60L + 30L);
-        Clock24Jml t4 = t3.plusSeconds(60L);
-        System.out.println(t3 + " + 60s -> " + t4);
-        //@ assert t4.second() == t3.second();
-        //@ assert t4.minute() == (t3.minute() + 1) % 60;
-        //@ assert t4.hour() == ((t3.hour() + ((t3.minute() + 1) / 60)) % 24);
-
+      Clock24Jml t3 = Clock24Jml.ofSecondsSinceStart(23 * 3600L + 59 * 60L + 30L);
+      Clock24Jml t4 = t3.plusSeconds(60L); // Change to 61 to see a "JML assertion is false" error
+      System.out.println(t3 + " + 60s -> " + t4);
+      //@ assert t4.second() == t3.second();
+      //@ assert t4.minute() == (t3.minute() + 1) % 60;
+      //@ assert t4.hour() == ((t3.hour() + ((t3.minute() + 1) / 60)) % 24);
     }
     
     // Here, exclude \function{toString} from static checking

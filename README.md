@@ -24,8 +24,10 @@ I assume Linux as per lab machines.
 ## Static Verification (ESC)
 
 ```bash
-openjml -esc Clock24Jml.java
+openjml -esc --progress --show-summary Clock24Jml.java
 ```
+
+See [Clock explanation](clock_explanation.md).
 
 ## Runtime Assertion Checking (RAC)
 
@@ -36,5 +38,5 @@ openjml -rac Clock24Jml.java
 ## Execute
 
 ```bash
-openjml-java -cp ".:$HOME/tools/jmlruntime.jar" -ea Clock24Jml 
+openjml-java -cp ".:$HOME/tools/openjml/jmlruntime.jar" -ea Clock24Jml 
 ```
